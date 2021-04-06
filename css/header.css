@@ -181,7 +181,7 @@ body.touch .menu.fixed .menu__list>li.menu__li.active .menu__arrow{
   margin-bottom: 5px;
 }
 .header__p{
-  font-family: 'Satisfy', cursive;
+  font-style: italic;
   color: #fff;
   font-size: 20px;
   text-align: center;
