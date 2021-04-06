@@ -249,6 +249,11 @@ body.touch .menu.fixed .menu__li.active .menu__arrow{
   border-top: 0;
   border-bottom: 10px solid #000;
 }
+@media (max-width: 992px) {
+  .header__content{
+    margin-top: 100px;
+  }
+}
 @media (max-width: 767px) {
   body.lock{
     overflow: hidden;
@@ -382,7 +387,6 @@ body.touch .menu.fixed .menu__li.active .menu__arrow{
     pointer-events: all;
     display: block;
   }
-
 }
 @media (max-width: 767px) {
   .header__content{
