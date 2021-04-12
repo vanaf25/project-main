@@ -99,7 +99,6 @@ function openArrowUp () {
         top:0,
         behavior:"smooth"
       })
-      let n=0
     }
 
     arrowUp.querySelector('i').addEventListener('click',scrollToTop)
