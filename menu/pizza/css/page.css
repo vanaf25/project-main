@@ -1,0 +1,134 @@
+.page__section{
+  padding: 50px 0;
+}
+.page__items{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.page__item{
+  width: 300px;
+  height: auto;
+margin: 10px;
+  transition: box-shadow .5s;
+}
+.page__item:hover{
+  box-shadow: 0 0 25px grey;
+}
+.page__item:hover h3{
+  color: #8c9f3f;
+}
+.item__image{
+  position: relative;
+  width: 100%;
+  height: 150px;
+
+}
+.item__text{
+  padding: 10px;
+  background-color: #f5f5f5;
+}
+
+.item__image img{
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.item__data{
+  display: flex;
+  justify-content: space-between;
+}
+.item__weight{
+  align-self: center;
+}
+.item__size-wrapper{
+  display: flex;
+}
+.item__size{
+  width: 40px;
+  height: 20px;
+  background-color: #8c9f3f;
+  border-radius: 20px/20px;
+  padding: 5px;
+  position: relative;
+  cursor: pointer;
+  margin: 0 5px;
+}
+.item__size-wrapper span{
+  align-self: center;
+}
+.item__switch{
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: white;
+transform: translateX(0);
+  position: absolute;
+  transition: transform .5s;
+}
+.item__size.active .item__switch{
+  transform: translateX(20px);
+}
+.item__description{
+height: 80px;
+  overflow: hidden;
+  color: gray;
+  font-family: 'Roboto',Arial,sans-serif;
+  font-size: 16px;
+}
+.item__title h3{
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  transition: color .5s;
+cursor: pointer;
+}
+.item__button button{
+  background-color: transparent;
+  border: 1px solid #8c9f3f ;
+  color: #8c9f0a;
+  display: block;
+  width: 100%;
+  padding: 10px 20px;
+  text-transform: uppercase;
+  cursor: pointer;
+  outline: none;
+}
+.item__button button:hover{
+  background-color: #8c9f3f;
+  color: #fff;
+}
+.item__cost h4{
+  font-size: 22px;
+  font-weight: normal;
+}
+@media (max-height: 1125px) {
+  .page__item{
+    width: 250px;
+  }
+}
+@media (max-height: 961px) {
+  .page__item{
+    width: 350px;
+  }
+}
+@media (max-width: 880px) {
+  .page__item{
+    width: 300px;
+  }
+}
+@media (max-width: 767px) {
+  .page__item{
+    width: 250px;
+  }
+}
+@media (max-width: 660px) {
+  .page__item{
+    width: 100%;
+  }
+  .item__image{
+    height: 200px;
+  }
+}

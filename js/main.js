@@ -88,5 +88,22 @@ if (navigationLinks.length>0){
     const navigationLink=navigationLinks[i];
     navigationLink.addEventListener('click',scrollToElement)
   }
+}
+const arrowUp=document.querySelector('.arrowUp');
+window.addEventListener('scroll',openArrowUp)
+function openArrowUp () {
+  if (pageYOffset>400){
+    arrowUp.classList.add('active');
+    const scrollToTop=()=>{
+      scrollTo({
+        top:0,
+        behavior:"smooth"
+      })
+    }
 
+    arrowUp.querySelector('i').addEventListener('click',scrollToTop)
+  }
+  else {
+    arrowUp.classList.remove('active')
+  }
 }
