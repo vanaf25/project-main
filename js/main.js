@@ -98,7 +98,7 @@ function openArrowUp () {
       scrollTo({
         top:0,
         behavior:"smooth"
-      })
+      });
     }
 
     arrowUp.querySelector('i').addEventListener('click',scrollToTop)
