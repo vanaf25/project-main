@@ -1,6 +1,7 @@
 let requestURL="js/goods.json";
 let request=new XMLHttpRequest();
 request.open('GET', requestURL);
+let cart={}
 request.responseType = 'json';
 request.send();
 const templateItem=(item,array,size)=>{
@@ -15,9 +16,9 @@ const templateItem=(item,array,size)=>{
                   <h3>${array[item].name}</h3>
                 </div>
                 <div class="item__data">
-                  <div class="item__weight">${ size==="medium" ? array[item].mediumSizeWeight:array[item].bigSizeWeight}<span>г</span></div>
+                  <div class="item__weight">${ size ? array[item].bigSizeWeight:array[item].mediumSizeWeight}<span>г</span></div>
                 <div class="item__size-wrapper">
-                 <span>Средняя</span><div class="item__size ${size==="big" ? "active":""}" data-checked="false"><div class="item__switch"></div></div><span>Большая</span>
+                 <span>Средняя</span><div class="item__size ${size ? "active":""}" data-checked="false"><div class="item__switch"></div></div><span>Большая</span>
                 </div>
                 </div>
                 <div class="item__description">
@@ -26,10 +27,10 @@ const templateItem=(item,array,size)=>{
                   </p>
                 </div>
                 <div class="item__cost">
-                  <h4>${ size==="medium" ? array[item].mediumSizeCost:array[item].bigSizeCost}грн</h4>
+                  <h4>${array[item].endCost}грн</h4>
                 </div>
                 <div class="item__button">
-                  <button>Купить</button>
+                  <button data-id="${item}" class="buy">Купить</button>
                 </div>
               </div>
             </div>
@@ -38,41 +39,50 @@ const templateItem=(item,array,size)=>{
 }
 const goodsWrapper=document.querySelector('.page__items');
 let goodsSizes={};
-const rerenderGoodSizes=(index)=>{
-  if (!goodsSizes[index]){
-    goodsSizes[index]="medium";
-  }
-  else if (goodsSizes[index]==="medium"){
-    goodsSizes[index]="big"
-  }
-  else if (goodsSizes[index]==="big"){
-    goodsSizes[index]="medium";
-  }
-}
 request.onload = function() {
   let superHeroes = request.response;
   function rerenderGoods() {
     goodsWrapper.innerHTML="";
     for (let key in superHeroes){
-      rerenderGoodSizes(key);
-      console.log(goodsSizes.key);
+      if (goodsSizes[key]){
+        superHeroes[key].endCost=superHeroes[key].bigSizeCost
+      }
+      else{
+        superHeroes[key].endCost=superHeroes[key].mediumSizeCost
+      }
       goodsWrapper.innerHTML+=templateItem(key,superHeroes,goodsSizes[key]);
     }
+   const changeElem=document.querySelectorAll('.item__size');
+    changeElem.forEach((elem,index)=>{
+      elem.addEventListener('click',()=>{
+        changeSize(elem,index);
+      });
+    });
+    const buttons=document.querySelectorAll('.buy');
+    buttons.forEach((item)=>{
+      item.addEventListener('click',()=>{
+        addToCart(item.getAttribute('data-id'))
+      })
+    })
   }
   rerenderGoods()
-  const changeElem=document.querySelectorAll('.item__size');
-  const changeSize=(elem,index)=>{
-    if (elem.classList.contains('active')){
-      goodsSizes[index]="big";
+const addToCart=(articul)=>{
+    if (!cart[articul]){
+      cart[articul]=1
     }
-    else{
-      goodsSizes[index]="medium";``
+    else {
+      cart[articul]++
+    }
+    console.log(cart);
+}
+  const changeSize=(elem,index)=>{
+    if (!goodsSizes[index]){
+      goodsSizes[index]=true;
+    }
+    else if (goodsSizes[index]){
+      goodsSizes[index]=false
     }
     rerenderGoods()
   }
-  changeElem.forEach((elem,index)=>{
-    elem.addEventListener('click',()=>{
-      changeSize(elem,index);
-    });
-  });
+
 }

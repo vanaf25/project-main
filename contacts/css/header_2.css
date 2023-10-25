@@ -1,0 +1,44 @@
+.header{
+  background-image: url("../img/header_fon.jpg");
+  background-position: 50% 50%;
+  height: auto;
+  width: auto;
+  min-height:auto;
+  display: block;
+  padding: 20px 0;
+  background-attachment: scroll;
+}
+.header__content{
+  max-width: none;
+  margin-top: 0;
+}
+.top-bar{
+  position: relative;
+  left: 0;
+  top: 0;
+}
+.top__container{
+  display: flex;
+  justify-content: flex-end;
+}
+.menu{
+  position: relative;
+  left: 0;
+  top: 0;
+  width: 100%;
+}
+.header__text{
+  margin: 50px 0;
+}
+.header__title{
+  font-size: 3rem;
+}
+.button__links{
+  display: flex;
+  justify-content: center;
+}
+@media (max-width: 545px) {
+  .header__title {
+    font-size: 2rem;
+  }
+}

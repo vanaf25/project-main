@@ -331,21 +331,6 @@ flex: 0 1 640px;
 .section__p_white{
   color: #fff;
 }
-.sub__content{
-  display: flex;
-  flex-wrap: wrap;
-}
-.sub_column{
-  margin: 0 10px;
-  align-self: center;
-}
-.sub_column p a:hover{
-  text-decoration: underline;
-}
-.sub_column img{
-  width: 150px;
-  height: 150px;
-}
 .arrowUp{
   position: fixed;
   bottom: 20px;

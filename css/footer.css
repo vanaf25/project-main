@@ -1,4 +1,18 @@
-
+.sub__content{
+  display: flex;
+  flex-wrap: wrap;
+}
+.sub_column{
+  margin: 0 10px;
+  align-self: center;
+}
+.sub_column p a:hover{
+  text-decoration: underline;
+}
+.sub_column img{
+  width: 150px;
+  height: 150px;
+}
 .footer{
   background-color: #2e2e2e;
   padding: 10px 0;
